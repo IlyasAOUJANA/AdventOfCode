@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Day01 {
-    /**
-     * Reads Input From File
-     */
+
     public static void reasult() {
         try {
             // Read Input File

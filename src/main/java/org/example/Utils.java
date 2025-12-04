@@ -3,6 +3,8 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +21,9 @@ public class Utils {
             }
         }
         return lines;
+    }
+
+    public static String readIdRangeInput(String filename) throws IOException {
+        return Files.readString(Path.of(filename)).trim();
     }
 }
