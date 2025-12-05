@@ -15,7 +15,7 @@ public class Day03 {
 
             // Part 2
             long part2Result  = solvePart2(inputs);
-            System.out.println("Part 1: " + part2Result);
+            System.out.println("Part 2: " + part2Result);
 
         } catch (IOException e) {
             System.err.println("Error reading input file: " + e.getMessage());
@@ -41,8 +41,9 @@ public class Day03 {
         for (int i = 0; i < len - 1; i++) {
             for (int j = i + 1; j < len; j++) {
                 // Form a 2-digit number from digits at positions i and j
-                int digit1 = input.charAt(i) - '0';
-                int digit2 = input.charAt(j) - '0';
+                int digit1 = Integer.parseInt(String.valueOf(input.charAt(i)));
+                int digit2 = Integer.parseInt(String.valueOf(input.charAt(j))) ;
+//                System.out.println("digit1 : " + digit1 + " digit2 : " + digit1);
                 int joltage = digit1 * 10 + digit2;
 
                 maxJoltage = Math.max(maxJoltage, joltage);

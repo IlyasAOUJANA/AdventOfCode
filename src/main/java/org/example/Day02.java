@@ -112,19 +112,19 @@ public class Day02 {
             // Check if the length is divisible by pattern length
             if (len % patternLen == 0) {
                 String pattern = idStr.substring(0, patternLen);
-                boolean isValid = true;
+                boolean isInvalid = true;
 
                 // Check if the entire string is made of this pattern repeated
                 for (int i = patternLen; i < len; i += patternLen) {
                     String segment = idStr.substring(i, i + patternLen);
                     if (!segment.equals(pattern)) {
-                        isValid = false;
+                        isInvalid = false;
                         break;
                     }
                 }
 
                 // If we found a repeating pattern, it's invalid
-                if (isValid) {
+                if (isInvalid) {
                     return true;
                 }
             }
