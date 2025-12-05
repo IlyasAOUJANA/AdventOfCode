@@ -24,26 +24,23 @@ public class Day01 {
     }
 
     private static int solvePart1(List<String> rotations) {
-        int position = 50; // Starting position
         int zeroCount = 0;
+        int position = 50;
+//        System.out.println(rotations);
 
-        for (String rotation : rotations) {
-            char direction = rotation.charAt(0);
+        for (String rotation : rotations){
+            String rotationType = rotation.substring(0,1);
             int distance = Integer.parseInt(rotation.substring(1));
+//            System.out.println(rotation);
+//            System.out.println(rotationType);
+//            System.out.println(distance);
 
-            // Apply rotation
-            if (direction == 'L') {
+            if (rotationType.equals("L")) {
                 position = (position - distance) % 100;
-            } else { // direction == 'R'
+            } else if (rotationType.equals("R")) {
                 position = (position + distance) % 100;
             }
 
-            // Handle negative wraparound
-            if (position < 0) {
-                position += 100;
-            }
-
-            // Check if dial points to 0
             if (position == 0) {
                 zeroCount++;
             }
@@ -53,24 +50,28 @@ public class Day01 {
     }
 
     private static int solvePart2(List<String> rotations) {
-        int position = 50;     // starting position
-        int zeroCount = 0;    // we count zeros, including those in-between
+        int zeroCount = 0;
+        int position = 50;
+//        System.out.println(rotations);
 
-        for (String rotation : rotations) {
-            char direction = rotation.charAt(0);
+        for (String rotation : rotations){
+            String rotationType = rotation.substring(0,1);
             int distance = Integer.parseInt(rotation.substring(1));
+//            System.out.println(rotation);
+//            System.out.println(rotationType);
+//            System.out.println(distance);
 
-            for (int i = 0; i < distance; i++) {
-                if (direction == 'L') {
-                    position = (position - 1 + 100) % 100;
-                } else { // R
+            for (int i=0; i<distance; i++) {
+                if (rotationType.equals("L")) {
+                    position = (position - 1) % 100;
+                } else if (rotationType.equals("R")) {
                     position = (position + 1) % 100;
                 }
 
-                if (position == 0) {
+                if (position == 0)
                     zeroCount++;
-                }
             }
+
         }
 
         return zeroCount;
